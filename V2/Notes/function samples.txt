@@ -1,0 +1,17 @@
+   function public_encrypt($plaintext){ 
+2                 $fp=fopen("./mykey.pub","r"); 
+3                 $pub_key=fread($fp,8192); 
+4                 fclose($fp); 
+5                 openssl_get_publickey($pub_key); 
+6                 openssl_public_encrypt($plaintext,$crypttext, $pub_key ); 
+7                 return(base64_encode($crypttext)); 
+8         } 
+9          
+10         function private_decrypt($encryptedext){ 
+11                 $fp=fopen("./mykey.pem","r"); 
+12                 $priv_key=fread($fp,8192); 
+13                 fclose($fp); 
+14                 $private_key = openssl_get_privatekey($priv_key); 
+15                 openssl_private_decrypt(base64_decode($encryptedext), $decrypted, $private_key); 
+16                 return $decrypted; 
+17         } 

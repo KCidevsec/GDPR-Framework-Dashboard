@@ -1,0 +1,18 @@
+1. Add indirect Back Ref
+2. Change constructors / credentials
+3. Create database partitions for each database
+4. Change DataToXML path directory
+5. Change SetPath path directory
+6. Distribute Public Keys to all companies
+7. Create website to select records to be transfered
+8. Obtain data related to selected emails
+9. Create an xml file of those data
+10. Sign the data with source private key
+11. Sign the data with destination private key
+12. Transmit data
+13. Unsign with public key of source
+14. Unsign with private key of destination
+15. Compare hashes to authenticate data
+16. Store data into destinations database
+17. Create link in forward table
+18. 1-1 connection in each URI

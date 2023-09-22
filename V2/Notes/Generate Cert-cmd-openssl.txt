@@ -1,0 +1,10 @@
+openssl req -x509 -days 9125 -newkey rsa:2048 -keyout my-key.pem -out my-cert.pem //generate keys
+
+openssl pkcs12 -export -in my-cert.pem -inkey my-key.pem -out CompanyF-Cert.pfx //create certificate 
+
+openssl pkcs12 -in CompanyF-Cert.pfx -clcerts -nokeys -out CompanyF-Public.pem //export public key
+
+openssl pkcs12 -in CompanyF-Cert.pfx -nocerts -out CompanyF-EncryptedPrivate.pem//export encrypted private key
+
+openssl rsa -in CompanyF-EncryptedPrivate.pem -out CompanyF-Private.pem //decrypt private key & remove password
+
